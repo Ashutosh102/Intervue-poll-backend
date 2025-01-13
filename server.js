@@ -7,8 +7,9 @@ const app = express()
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: "https://intervue-live-poll.vercel.app",
-    methods: ["GET", "POST"]
+    origin: "https://intervue-live-poll.vercel.app", // Allow requests from your frontend
+    methods: ["GET", "POST"],
+    credentials: true // Allow credentials if needed
   }
 })
 
@@ -152,3 +153,4 @@ server.listen(PORT, () => {
 })
 
 console.log('Starting Socket.IO server...')
+
